@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Nav from './Nav'
 
-const AsiosApi = () => {
+const Data = () => {
     const [data, setData] = useState([])
 
     const apiData = async () => {
@@ -14,6 +14,7 @@ const AsiosApi = () => {
         apiData()
     }, [])
     console.log(data)
+    
 
     return (
         <>
@@ -32,4 +33,4 @@ const AsiosApi = () => {
     )
 }
 
-export default AsiosApi
+export default Data

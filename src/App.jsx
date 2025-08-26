@@ -6,8 +6,9 @@ import SignUp from './SignUp'
 import LogIn from './LogIn'
 import Nav from './Nav'
 import Home from './Home'
-import AxiosApi from './AsiosApi'
+import Data from './Data'
 import ProtectedRoute from './Protected'
+import Counter from './Counter'
 
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
@@ -18,14 +19,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/pr' element={
-            <ProtectedRoute>
-              <ProtectedRoute />
-            </ProtectedRoute>
-          }></Route>
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/login' element={<LogIn />}></Route>
-          <Route path='/axiosapi' element={<AxiosApi />}></Route>
+          <Route path='/data' element={<ProtectedRoute>
+            <Data/>
+          </ProtectedRoute>}></Route>
+          <Route path='/counter' element={<Counter/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

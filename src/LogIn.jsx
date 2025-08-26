@@ -1,19 +1,23 @@
 import { useState } from "react"
 import SignUp from "./SignUp"
 import Nav from "./Nav"
-import { data } from "react-router-dom"
+import { data, useNavigate } from "react-router-dom"
 
 export default function LogIn(){
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
 
+    const navigate = useNavigate();
     const HandleSubmit=(e)=>{
         e.preventDefault()        
 
         const resultData = JSON.parse(localStorage.getItem('data'))
 
         if(resultData.email===email && resultData.password===password){
-            alert("Log in successfully done")
+            localStorage.setItem("currentUser", JSON.stringify(resultData))
+            alert(`Login successfully ${resultData.name}`)
+            navigate("/")
+
             setEmail('')
             setPassword('')
         }
@@ -29,13 +33,7 @@ export default function LogIn(){
 
     }
  function handleLogout() {
-    const userData = localStorage.getItem('data')
-
-        if (!userData) {
-            alert("Please Signup first")
-            return;
-        }
-        localStorage.removeItem("userData");
+        localStorage.removeItem('currentUser');
         alert("Logged out successfully")
     }
        

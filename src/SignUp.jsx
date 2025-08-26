@@ -35,6 +35,7 @@ export default function SignUp() {
                 phone: "",
                 password: "",
             })
+            
     }
 
     // let person = {name:"rohit",email:""}
